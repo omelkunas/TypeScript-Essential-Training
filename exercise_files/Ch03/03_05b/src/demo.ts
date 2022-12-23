@@ -1,6 +1,6 @@
-let x = { name: "Wruce Bayne" };
+let x: Record<string, string | number | boolean> = { name: "Wruce Bayne" };
 x.id = 1234;
-
+x.active = true
 
 
 ////////////////////
@@ -25,9 +25,9 @@ interface Query {
     matches(val): boolean;
 }
 
-function searchContacts(contacts: Contact[], query) {
+function searchContacts(contacts: Contact[], query: Record<keyof Contact, Query>) {
     return contacts.filter(contact => {
-        for (const property of Object.keys(contact)) {
+        for (const property of Object.keys(contact) as (keyof Contact[])) {
             // get the query object for this property
             const propertyQuery = query[property];
             // check to see if it matches

@@ -14,3 +14,15 @@ let primaryContact: Contact = {
     name: "Jamie Johnson",
     status: "active"
 }
+
+//keys of object
+type ContactFields = keyof Contact
+
+const field: ContactFields = ""
+
+function getValue(source, propertyName: keyof Contact) {
+    return source[propertyName]
+}
+
+getValue(primaryContact, "id")
+getValue(primaryContact, "idd")
